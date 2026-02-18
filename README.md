@@ -1,4 +1,3 @@
-# csc325-capstone
 Group Capstone Project for CSC 325 - 26332 - Spring 2026
 
 Work Shift Management System
