@@ -1,4 +1,5 @@
-Group Capstone Project for CSC 325 - 26332 - Spring 2026
+Group 1 Capstone Project for CSC 325 - 26332 - Spring 2026
+  Harshdeep, Adam, Brody, Chigozie
 
 Work Shift Management System
 
