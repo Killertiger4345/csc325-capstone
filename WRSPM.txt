@@ -1,13 +1,11 @@
-Group 1										       2/18/2026
-CSC 325 – Software Engineering 					           Professor Zihni Ugurbil
+Group 1                                 2/18/2026
+CSC 325 – Software Engineering 		    Professor Zihni Ugurbil
 WRSPM Analysis
 1.	World Assumptions
-a.	  
+a.      A company with multiple locations hiring multiple shift supervisors per location who each manage employee shift assignment
 2.	User Requirements 
-a.	  
+a.      When someone is needed for a shift on a day, the supervisor can look up who is available and assign employees to shifts in advance
 3.	Specifications and Needs
-a.	  
+a.      An authorization system, calendar view,
 4.	Program and Hardware
-a.	  
-
-
+a.      Database servers, web server, laptops / PCs on site for supervisors / managers to view locations
