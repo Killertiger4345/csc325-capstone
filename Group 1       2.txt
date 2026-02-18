@@ -1,12 +1,13 @@
 Group 1										       2/18/2026
-CSC 325 – Software Engineering 					           Professor Zihni Ugurbil
+CSC 325 â€“ Software Engineering 					           Professor Zihni Ugurbil
 WRSPM Analysis
 1.	World Assumptions
-a.	
+a.	  
 2.	User Requirements 
-a.	
+a.	  
 3.	Specifications and Needs
-a.	
+a.	  
 4.	Program and Hardware
-a.	
+a.	  
+
 
