@@ -2,7 +2,7 @@ Group 1                                 2/18/2026
 CSC 325 – Software Engineering 		    Professor Zihni Ugurbil
 WRSPM Analysis
 1.	World Assumptions
-All users have access to the internet and have suitable devices.
+All users have internet access and suitable devices.
 
 2.	User Requirements
 User-friendly interface for easy and clear navigation and interaction for any new employee
@@ -17,4 +17,4 @@ Visualization of location shifts
 4.	Program & Hardware
 Developing an application using Java and frameworks
 Hosting the application on Firebase
-Information storage on a database in a storage environment
+Information storage in a database in a storage environment
