@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FileInputStream serviceAccount =
-                new FileInputStream("src/main/resources/aydin/firebasedemo/key.json");
+                new FileInputStream("src/main/resources/com/hershey/shiftsync/key.json");
 
         FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
