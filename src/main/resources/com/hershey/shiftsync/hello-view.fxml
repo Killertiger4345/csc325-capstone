@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.hershey.shiftsync.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hershey.shiftsync.ShiftSyncController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label text="Welcome, please sign in">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Separator prefWidth="200.0" />
+      <HBox prefHeight="16.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="70.0" text="Email:" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <TextField fx:id="emailText" nodeOrientation="LEFT_TO_RIGHT" />
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="70.0" text="Password:" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <PasswordField fx:id="passwordText" />
+         </children>
+      </HBox>
+      <HBox />
+      <AnchorPane prefWidth="271.0">
+         <children>
+            <Button fx:id="register" mnemonicParsing="false" onAction="#onRegisterButtonClick" text="Register" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="211.0" />
+            <Button fx:id="signIn" layoutX="218.0" mnemonicParsing="false" onAction="#onSignInButtonClick" text="Sign In" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>
