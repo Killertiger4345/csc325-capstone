@@ -12,6 +12,8 @@ module com.hershey.shiftsync {
     requires firebase.admin;
     requires google.cloud.firestore;
     requires com.google.auth;
+    requires com.google.api.apicommon;
+    requires com.google.common;
 
     opens com.hershey.shiftsync to javafx.fxml;
     exports com.hershey.shiftsync;
