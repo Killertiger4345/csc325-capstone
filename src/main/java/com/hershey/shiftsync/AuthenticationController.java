@@ -4,15 +4,10 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
-import com.google.common.hash.HashCode;
-import com.google.common.hash.HashFunction;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import com.google.api.core.ApiFuture;
 import com.google.common.hash.Hashing;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,7 +21,7 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class ShiftSyncController {
+public class AuthenticationController {
     @FXML
     private TextField emailText;
 
@@ -42,6 +37,8 @@ public class ShiftSyncController {
     @FXML
     private Button signIn;
 
+    private String uID;
+
     @FXML
     protected void onRegisterButtonClick() { addUser();
     }
@@ -49,6 +46,38 @@ public class ShiftSyncController {
     @FXML
     protected void onSignInButtonClick() {
         try {
+            if (!validate()) {
+                return;
+            }
+            if (!checkDuplicate()) {
+                errorText.setText("Email doesn't exist, please register first");
+                return;
+            }
+            ApiFuture<QuerySnapshot> future = ShiftSync.fStore.collection("Users").get();
+            List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+
+            String storedPassword = null;
+            for (QueryDocumentSnapshot document : documents) {
+                String docUID = document.getData().get("uid").toString();
+                if (docUID.equals(uID)) {
+                    storedPassword = document.getData().get("password").toString();
+                }
+            }
+
+            String hashedPass = Hashing
+                    .sha256()
+                    .hashString(passwordText.getText(), StandardCharsets.UTF_8)
+                    .toString()
+                    .toUpperCase();
+            if (hashedPass.equals(storedPassword)) {
+                IO.println("Successful login");
+                errorText.setText("Successful login");
+                ShiftSync.changeScene("Dashboard.fxml");
+            }
+            else {
+                IO.println("Unsuccessful login");
+                errorText.setText("Password incorrect");
+            }
 
         }
         catch (Exception e) {
@@ -137,6 +166,7 @@ public class ShiftSyncController {
                 for (QueryDocumentSnapshot document : documents) {
                     String storedEmail = document.getData().get("email").toString();
                     if (storedEmail != null && storedEmail.equals(email)) {
+                        uID = document.getData().get("uid").toString();
                         errorText.setText("Email already exists");
                         return true;
                     }
