@@ -13,6 +13,7 @@ import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.*;
 import com.google.firebase.FirebaseOptions;
+import com.google.cloud.Service;
 
 import com.google.firebase.cloud.FirestoreClient;
 
@@ -34,8 +35,10 @@ public class ShiftSync extends Application {
         fStore = FirestoreClient.getFirestore();
         fAuth = FirebaseAuth.getInstance();
 
+        System.out.println(fStore.toString());
 
-        FXMLLoader fxmlLoader = new FXMLLoader(ShiftSync.class.getResource("hello-view.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(ShiftSync.class.getResource("ShiftSync.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
