@@ -20,6 +20,8 @@ import com.google.firebase.cloud.FirestoreClient;
 public class ShiftSync extends Application {
     public static Firestore fStore;
     public static FirebaseAuth fAuth;
+    public static Stage stage;
+    public static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -36,11 +38,19 @@ public class ShiftSync extends Application {
         fAuth = FirebaseAuth.getInstance();
 
         System.out.println(fStore.toString());
+        ShiftSync.stage = stage;
 
+        FXMLLoader fxmlLoader = new FXMLLoader(ShiftSync.class.getResource("Authentication.fxml"));
+        scene = new Scene(fxmlLoader.load(), 425, 360);
+        stage.setTitle("Authentication Page");
+        stage.setScene(scene);
+        stage.show();
+    }
 
-        FXMLLoader fxmlLoader = new FXMLLoader(ShiftSync.class.getResource("ShiftSync.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+    public static void changeScene(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(ShiftSync.class.getResource(fxml));
+        scene = new Scene(fxmlLoader.load(), 640, 480);
+        stage.setTitle("Dashboard");
         stage.setScene(scene);
         stage.show();
     }
