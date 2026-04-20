@@ -4,16 +4,20 @@ package com.hershey.shiftsync;
 public class Person {
     private String email;
     private String password;
-    private String phonenumber;
+    private String phoneNumber;
 
 
-    // Constructor
-    public Person(String email,String password, String phonenumber) {
+    // Constructors
+    public Person(String email,String password) {
         this.email= email;
         this.password = password;
-        this.phonenumber = phonenumber;
     }
 
+    public Person(String email,String password, String phoneNumber) {
+        this.email= email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+    }
 
     // getter methods
     public String getEmail() {
@@ -25,12 +29,10 @@ public class Person {
     }
 
     public String getPhonenumber() {
-        return phonenumber;
+        return phoneNumber;
     }
 
     // setter method
-
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -40,7 +42,6 @@ public class Person {
     }
 
     public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+        this.phoneNumber = phonenumber;
     }
-
 }
