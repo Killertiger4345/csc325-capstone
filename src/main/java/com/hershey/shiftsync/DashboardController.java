@@ -20,22 +20,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-
 public class DashboardController {
-    @FXML
-    private TextField emailText;
-
-    @FXML
-    private PasswordField passwordText;
-
-    @FXML
-    private Label errorText;
-
-    @FXML
-    private Button register;
-
-    @FXML
-    private Button signIn;
-
 
 }
