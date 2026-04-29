@@ -1,4 +1,4 @@
-package com.example.calendar;
+package com.hershey.shiftsync;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
