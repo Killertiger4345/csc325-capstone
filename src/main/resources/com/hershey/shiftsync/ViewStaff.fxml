@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="505.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hershey.shiftsync.ViewStaffController">
+    <VBox layoutX="250.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0"
+          AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+          AnchorPane.topAnchor="10.0">
+        <Label text="Supervisors"/>
+        <TableView fx:id="supervisorTableView" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="supervisorEmailTableColumn" prefWidth="225.0" text="Email"/>
+                <TableColumn fx:id="supervisorFirstNameTableColumn" prefWidth="150.0" text="First Name"/>
+                <TableColumn fx:id="supervisorLastNameTableColumn" prefWidth="150.0" text="Last Name"/>
+                <TableColumn fx:id="supervisorPhoneTableColumn" prefWidth="250.0" text="Phone Number"/>
+            </columns>
+        </TableView>
+        <Label layoutX="10.0" layoutY="10.0" text="Employees"/>
+        <TableView fx:id="employeeTableView" layoutX="10.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0">
+            <columns>
+                <TableColumn fx:id="employeeEmailTableColumn" prefWidth="225.0" text="Email"/>
+                <TableColumn fx:id="employeeFirstNameTableColumn" prefWidth="150.0" text="First Name"/>
+                <TableColumn fx:id="employeeLastNameTableColumn" prefWidth="150.0" text="Last Name"/>
+                <TableColumn fx:id="employeePhoneTableColumn" prefWidth="250.0" text="Phone Number"/>
+            </columns>
+        </TableView>
+        <Button mnemonicParsing="false" onAction="#onBackButtonClick" text="Back"/>
+    </VBox>
+</AnchorPane>
