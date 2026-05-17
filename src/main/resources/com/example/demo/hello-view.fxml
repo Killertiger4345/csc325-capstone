@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.HelloController"
+            prefWidth="1000" prefHeight="650">
+
+    <!-- TOP HEADER BAR -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="14" right="24" bottom="14" left="24"/></padding>
+            <VBox>
+                <Label text="ShiftSync" styleClass="header-title"/>
+                <Label text="Work Shift Management System" styleClass="header-subtitle"/>
+            </VBox>
+        </HBox>
+    </top>
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox styleClass="sidebar" spacing="6" prefWidth="200">
+            <padding><Insets top="28" right="12" bottom="28" left="12"/></padding>
+
+            <Label text="NAVIGATION" styleClass="sidebar-section-label"/>
+
+            <Button fx:id="btnHome"     text="Home"      styleClass="nav-btn, nav-active" maxWidth="Infinity" onAction="#showHome"/>
+            <Button fx:id="btnAbout"    text="About"     styleClass="nav-btn"             maxWidth="Infinity" onAction="#showAbout"/>
+            <Button fx:id="btnCalendar" text="Calendar"  styleClass="nav-btn"             maxWidth="Infinity" onAction="#showCalendar"/>
+            <Button fx:id="btnManagers" text="Managers"  styleClass="nav-btn"             maxWidth="Infinity" onAction="#showManagers"/>
+            <Button fx:id="btnShifts"   text="Shifts"    styleClass="nav-btn"             maxWidth="Infinity" onAction="#showShifts"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="ShiftSync v1.0" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT AREA -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+
+            <!-- PAGE: HOME -->
+            <VBox fx:id="pageHome" styleClass="page" spacing="24" visible="true">
+                <padding><Insets top="36" right="36" bottom="36" left="36"/></padding>
+
+                <Label text="Welcome to ShiftSync" styleClass="page-title"/>
+                <Label text="Manage your team, locations, and shifts all in one place."
+                       styleClass="page-subtitle" wrapText="true"/>
+
+                <HBox spacing="16">
+                    <VBox styleClass="stat-card" alignment="CENTER" spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="3" styleClass="stat-number"/>
+                        <Label text="Locations" styleClass="stat-label"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" alignment="CENTER" spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="8" styleClass="stat-number"/>
+                        <Label text="Supervisors" styleClass="stat-label"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" alignment="CENTER" spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="24" styleClass="stat-number"/>
+                        <Label text="Employees" styleClass="stat-label"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" alignment="CENTER" spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="12" styleClass="stat-number"/>
+                        <Label text="Shifts This Week" styleClass="stat-label"/>
+                    </VBox>
+                </HBox>
+
+                <Label text="Quick Tips" styleClass="section-header"/>
+                <VBox spacing="10">
+                    <HBox styleClass="tip-row" spacing="12" alignment="CENTER_LEFT">
+                        <Label text="Use the Managers tab to add or manage location managers." wrapText="true" styleClass="tip-text"/>
+                    </HBox>
+                    <HBox styleClass="tip-row" spacing="12" alignment="CENTER_LEFT">
+                        <Label text="Use the Shifts tab to assign employees to weekly shifts." wrapText="true" styleClass="tip-text"/>
+                    </HBox>
+                    <HBox styleClass="tip-row" spacing="12" alignment="CENTER_LEFT">
+                        <Label text="Employees set their availability and supervisors approve shifts." wrapText="true" styleClass="tip-text"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- PAGE: ABOUT -->
+            <VBox fx:id="pageAbout" styleClass="page" spacing="20" visible="false">
+                <padding><Insets top="36" right="36" bottom="36" left="36"/></padding>
+
+                <Label text="About ShiftSync" styleClass="page-title"/>
+                <Label text="Learn how the system is structured." styleClass="page-subtitle"/>
+
+                <Accordion>
+                    <panes>
+                        <TitledPane text="What is ShiftSync?" styleClass="accordion-pane">
+                            <VBox spacing="8">
+                                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                                <Label wrapText="true" styleClass="accordion-text"
+                                       text="ShiftSync is a Work Shift Management System designed to help organizations coordinate their workforce efficiently. Managers oversee multiple locations, supervisors manage day-to-day staffing, and employees communicate their availability."/>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane text="Managers" styleClass="accordion-pane">
+                            <VBox spacing="8">
+                                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                                <Label wrapText="true" styleClass="accordion-text"
+                                       text="Managers are at the top level of the system. Each Manager can oversee multiple Locations. They are responsible for hiring Supervisors, reviewing overall scheduling, and ensuring all locations are properly staffed."/>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane text="Locations" styleClass="accordion-pane">
+                            <VBox spacing="8">
+                                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                                <Label wrapText="true" styleClass="accordion-text"
+                                       text="Each Location is a workplace site managed by one Manager. A Location hires multiple Supervisors and Employees. The location serves as the central hub for assigning shifts and tracking employee availability for that site."/>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane text="Supervisors" styleClass="accordion-pane">
+                            <VBox spacing="8">
+                                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                                <Label wrapText="true" styleClass="accordion-text"
+                                       text="Each Supervisor is assigned to one specific Location. They are responsible for hiring and managing the Employees at that location, reviewing availability, and assigning employees to shifts throughout the week."/>
+                            </VBox>
+                        </TitledPane>
+                        <TitledPane text="Employees" styleClass="accordion-pane">
+                            <VBox spacing="8">
+                                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                                <Label wrapText="true" styleClass="accordion-text"
+                                       text="Employees belong to one Location. They submit their weekly availability so that Supervisors can assign them to appropriate shifts. Employees can view their upcoming schedule once shifts are assigned."/>
+                            </VBox>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </VBox>
+
+            <!-- PAGE: CALENDAR (blank) -->
+            <VBox fx:id="pageCalendar" styleClass="page" visible="false">
+            </VBox>
+
+            <!-- PAGE: MANAGERS -->
+            <VBox fx:id="pageManagers" styleClass="page" spacing="20" alignment="CENTER" visible="false">
+                <padding><Insets top="36" right="36" bottom="36" left="36"/></padding>
+                <Label text="Managers" styleClass="page-title"/>
+                <Label text="Coming Soon" styleClass="page-subtitle"/>
+                <Label text="Manager tools will be available here."
+                       styleClass="placeholder-note" wrapText="true"/>
+            </VBox>
+
+            <!-- PAGE: SHIFTS -->
+            <VBox fx:id="pageShifts" styleClass="page" spacing="20" alignment="CENTER" visible="false">
+                <padding><Insets top="36" right="36" bottom="36" left="36"/></padding>
+                <Label text="Shifts" styleClass="page-title"/>
+                <Label text="Coming Soon" styleClass="page-subtitle"/>
+                <Label text="Shift assignment tools will be available here."
+                       styleClass="placeholder-note" wrapText="true"/>
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>
