@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class DashboardController {
 
     @FXML private VBox pageHome;
@@ -23,7 +25,8 @@ public class DashboardController {
 
     @FXML private void showHome()     { showPage(pageHome,     btnHome);     }
     @FXML private void showAbout()    { showPage(pageAbout,    btnAbout);    }
-    @FXML private void showCalendar() { showPage(pageCalendar, btnCalendar); }
+//    @FXML private void showCalendar() { showPage(pageCalendar, btnCalendar); }
+    @FXML private void showCalendar() throws IOException { ShiftSync.changeScene("Calendar.fxml", "Calendar View"); }
     @FXML private void showManagers() { showPage(pageManagers, btnManagers); }
     @FXML private void showShifts()   { showPage(pageShifts,   btnShifts);   }
 
