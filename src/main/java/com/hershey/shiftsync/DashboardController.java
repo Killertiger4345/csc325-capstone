@@ -15,6 +15,7 @@ public class DashboardController {
     @FXML private Button btnAbout;
     @FXML private Button btnCalendar;
     @FXML private Button btnStaff;
+    @FXML private Button btnLogOut;
 
     @FXML
     public void initialize() {}
@@ -38,5 +39,9 @@ public class DashboardController {
         if (!activeButton.getStyleClass().contains("nav-active")) {
             activeButton.getStyleClass().add("nav-active");
         }
+    }
+    @FXML
+    private void logOut() throws IOException {
+        ShiftSync.changeScene("Homepage.fxml", "Homepage");
     }
 }
