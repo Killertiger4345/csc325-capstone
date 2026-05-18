@@ -15,6 +15,21 @@ import java.util.concurrent.ExecutionException;
 
 public class ViewStaffController {
     @FXML
+    private TableView<Person> managerTableView;
+
+    @FXML
+    private TableColumn<Person, String> managerEmailTableColumn;
+
+    @FXML
+    private TableColumn<Person, String> managerFirstNameTableColumn;
+
+    @FXML
+    private TableColumn<Person, String> managerLastNameTableColumn;
+
+    @FXML
+    private TableColumn<Person, String> managerPhoneTableColumn;
+
+    @FXML
     private TableView<Person> supervisorTableView;
 
     @FXML
@@ -52,15 +67,20 @@ public class ViewStaffController {
     @FXML
     public void initialize() {
         //Set cell factories for loading Person objects to tables
-        employeeEmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        employeeFirstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        employeeLastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        employeePhoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+        managerEmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        managerFirstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        managerLastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        managerPhoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
 
         supervisorEmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         supervisorFirstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         supervisorLastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         supervisorPhoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+
+        employeeEmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        employeeFirstNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        employeeLastNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        employeePhoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
 
         //Fill supervisor and employee tables
         try {
@@ -82,7 +102,10 @@ public class ViewStaffController {
                             (String) info.get("lastName")
                     );
 
-                    if(userType.equals("Supervisor")) {
+                    if(userType.equals("Manager")) {
+                        managerTableView.getItems().add(person);
+                    }
+                    else if(userType.equals("Supervisor")) {
                         supervisorTableView.getItems().add(person);
                     }
                     else if(userType.equals("Employee")) {
