@@ -105,10 +105,10 @@ public class RegisterController {
     }
 
     private boolean validate() {
-        // Check EMAIL and PASSWORD aren't empty
-        if (email.isEmpty() || password.isEmpty()) {
+        // Check if fields are empty
+        if (fname.isEmpty() || lname.isEmpty() || email.isEmpty() || password.isEmpty() ||  phone.isEmpty()) {
             IO.println("Email or password is empty");
-            resultText.setText("Email or password is empty");
+            resultText.setText("One or more fields are empty");
             return false;
         }
         // Check PASSWORD >= 6 characters
